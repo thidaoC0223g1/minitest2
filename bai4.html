@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+</head>
+<body>
+<script>
+
+    let n = parseInt(prompt('nhap vao chieu dai mang'));
+    let arr = [];
+    let sumEven = 0;
+    let sum = 0;
+
+
+    function arrCrt() { // khai báo chiều dài của mảng
+        arr.length = n;
+    }
+
+    function arrInput() {
+        for (let i = 0; i < n; i++) {
+            let x = parseInt(prompt('nhap vao phan tu cua mang'));
+            arr[i] = x;
+        }
+    }
+
+    function arrEven() { // tính tổng số chẵn trong mảng
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                sumEven += arr[i];
+            }
+        }
+    }
+
+    function arrprime(n) { // tìm số nguyên tố trong mảng
+        let check = 1;
+        if (n < 2) {
+            check = 0;
+        } else {
+            for (let i = 2; i < n; i++) {
+                if (n % i === 0) {
+                    check = 0;
+                    break;
+                }
+            }
+            return check;
+        }
+    }
+
+    function sumPrime() { // tính tổng số nguyên tố trong mảng
+        for (let i = 0; i < arr.length; i++) {
+            if (arrprime(arr[i]) === 1) {
+                sum += arr[i];
+            }
+        }
+    }
+
+    arrCrt();
+    arrInput();
+    arrEven();
+    sumPrime();
+    document.write('mang arr =' + '&nbsp' + arr + '<br>' + 'tong so chan =' + '&nbsp' + sumEven + '<br>' + ' tong so nguyen to =' + '&nbsp' + sum);
+
+</script>
+</body>
+</html>
